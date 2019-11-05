@@ -7,7 +7,7 @@ $('.content').on('scroll', function(){
     // console.log("s"+s);
     // console.log("d"+d);
     // console.log("c"+c);
-    scrollPercent = (s / ((d*5) - c)) * 100;
+    scrollPercent = (s / ((d*10) - c)) * 100;
     // console.log(scrollPercent);
     
 })
@@ -31,7 +31,6 @@ var breath = anime({
     autoplay: true,
     loop: true,
     easing: 'easeOutSine',
-    easing: 'steps(30)',
     duration: 1000,
     scale: [
         {value: 1},
@@ -43,8 +42,9 @@ var breath = anime({
 
 var rotato = anime ({
     targets: '.thisBall',
-    autoplay: false,
-    rotate: '720deg',
+    autoplay: true,
+    loop: true,
+    rotate: '360deg',
     easing: 'easeOutSine',
     // easing: 'steps(30)',
     // duration: 1000,
@@ -61,20 +61,35 @@ var gradient = anime ({
     // delay: anime.stagger(30, {grid: [4, 6], axis: 'center'})
 });
 
+var blurMe = anime ({
+    targets: '.thisBall',
+    autoplay: true,
+    loop: true,
+    filter: [
+        {value: 'blur(0px)'},
+        {value: 'blur(10px)'},
+        {value: 'blur(0px)', duration: 500}
+    ],
+    easings: 'easeOutSine',
+    duration: 1000,
+    delay: anime.stagger(200, {grid: [4, 6], axis: 'y'})
+});
+
 var blockBoiJB = anime ({
     targets: '.blocker',
-    autoplay: false,
+    autoplay: true,
+    loop: true,
     // easing: 'steps(30)',
     scale: [
         {value: 1},
-        {value: 2},
-        {value: 1},
-        {value: 3},
+        {value: 1.2},
+        {value: .2},
+        {value: .8},
         {value: 1}
       ],
-    // easing: 'steps(30)',
+    easing: 'easeInOutSine',
     // duration: 1000,
-    delay: anime.stagger(30, {grid: [4, 6], axis: 'center'})
+    delay: anime.stagger(60, {grid: [4, 6], axis: 'y'})
 });
 
 var fullCircle = anime ({
@@ -90,10 +105,12 @@ var fullCircle = anime ({
     delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
 });
 
+var c
+
 $('.content').on('scroll', function(){
 
     rotato.seek(scrollPercent/100 * rotato.duration);
     gradient.seek(scrollPercent/100 * gradient.duration);
-    blockBoiJB.seek(scrollPercent/100 * blockBoiJB.duration);
+    // blockBoiJB.seek(scrollPercent/100 * blockBoiJB.duration);
     fullCircle.seek(scrollPercent/100 * fullCircle.duration);
 })

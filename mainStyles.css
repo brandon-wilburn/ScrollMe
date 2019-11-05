@@ -58,8 +58,8 @@ body {
 }
 
 .bigCircle {
-    height: 21vw;
-    width: 21vw;
+    height: 22vw;
+    width: 22vw;
     background-color: teal;
     border-radius: 50%;
     position: absolute;
@@ -69,8 +69,8 @@ body {
 
 
 .innerCircle {
-    height: 21vw;
-    width: 21vw;
+    height: 22vw;
+    width: 22vw;
     /* background: green; */
     position: absolute;
     display: flex;
@@ -88,8 +88,8 @@ body {
 }
 
 .blocker {
-    height: 21vw;
-    width: 21vw;
+    height: 22vw;
+    width: 22vw;
     /* bottom: 0; */
     position: absolute;
     overflow: hidden;
