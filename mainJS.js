@@ -8,7 +8,7 @@ $('.content').on('scroll', function(){
     // console.log("d"+d);
     // console.log("c"+c);
     scrollPercent = (s / ((d*10) - c)) * 100;
-    console.log(scrollPercent);
+    // console.log(scrollPercent);
     
 })
 
@@ -82,13 +82,13 @@ var blockBoiJB = anime ({
     // easing: 'steps(30)',
     scale: [
         {value: 1},
-        {value: 1.2},
+        {value: 1.2, duration: 1000},
         {value: .2},
         {value: .8},
         {value: 1}
       ],
     easing: 'easeInOutSine',
-    // duration: 1000,
+    duration: 1000,
     delay: anime.stagger(60, {grid: [4, 6], axis: 'y'})
 });
 
@@ -105,12 +105,44 @@ var fullCircle = anime ({
     delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
 });
 
+var reverseFullCircle = anime ({
+    targets: '.blocker',
+    autoplay: false,
+    easing: 'easeOutSine',
+    height: [
+        {value: '1vw'},
+        {value: '22vw'}
+    ],
+    // easing: 'steps(30)',
+    // duration: 1000,
+    delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
+})
+
+var letsGetSquare = anime ({
+    targets: '.bigCircle',
+    autoplay: false,
+    easing: 'easeOutSine',
+    borderRadius: [
+        {value: '100%'},
+        {value: '0%'}
+    ],
+    delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
+})
+
 var c
 
 $('.content').on('scroll', function(){
-
-    rotato.seek(scrollPercent/100 * rotato.duration);
-    gradient.seek(scrollPercent/100 * gradient.duration);
+    // First set
+    rotato.seek(scrollPercent/50 * rotato.duration);
+    gradient.seek(scrollPercent/50 * gradient.duration);
     // blockBoiJB.seek(scrollPercent/100 * blockBoiJB.duration);
-    fullCircle.seek(scrollPercent/100 * fullCircle.duration);
+    fullCircle.seek(scrollPercent/50 * fullCircle.duration);
+    console.log(scrollPercent/50 * fullCircle.duration);
+    // Second set
+    if (scrollPercent>49.9) {
+        console.log("Higher than 50%");
+        console.log(scrollPercent/75 * reverseFullCircle.duration);
+        reverseFullCircle.seek(scrollPercent/100 * reverseFullCircle.duration);
+        letsGetSquare.seek(scrollPercent/100 * letsGetSquare.duration);
+    }
 })
