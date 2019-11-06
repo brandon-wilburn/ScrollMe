@@ -8,7 +8,7 @@ $('.content').on('scroll', function(){
     // console.log("d"+d);
     // console.log("c"+c);
     scrollPercent = (s / ((d*10) - c)) * 100;
-    // console.log(scrollPercent);
+    console.log(scrollPercent);
     
 })
 
@@ -42,8 +42,8 @@ var breath = anime({
 
 var rotato = anime ({
     targets: '.thisBall',
-    autoplay: true,
-    loop: true,
+    // autoplay: true,
+    // loop: true,
     rotate: '360deg',
     easing: 'easeOutSine',
     // easing: 'steps(30)',
