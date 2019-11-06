@@ -44,7 +44,7 @@ var rotato = anime ({
     targets: '.thisBall',
     // autoplay: true,
     // loop: true,
-    rotate: '360deg',
+    rotate: '3600deg',
     easing: 'easeOutSine',
     // easing: 'steps(30)',
     // duration: 1000,

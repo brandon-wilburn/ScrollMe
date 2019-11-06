@@ -25,7 +25,7 @@ body {
     mix-blend-mode: multiply;
 }
 
-.red {
+/* .red {
     background-color: red;
     mix-blend-mode: multiply;
 }
@@ -33,7 +33,7 @@ body {
 .green {
     background-color: green;
     mix-blend-mode: multiply;
-}
+} */
 
 .snappy {
     scroll-snap-align: start;
