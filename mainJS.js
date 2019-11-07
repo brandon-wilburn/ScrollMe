@@ -98,45 +98,58 @@ var fullCircle = anime ({
     easing: 'easeOutSine',
     height: [
         {value: '10.5vw'},
-        {value: '1vw'}
-    ],
-    // easing: 'steps(30)',
-    duration: 1000,
-    delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
-});
-
-var reverseFullCircle = anime ({
-    targets: '.blocker',
-    autoplay: false,
-    easing: 'easeOutSine',
-    height: [
         {value: '1vw'},
         {value: '22vw'}
     ],
     // easing: 'steps(30)',
     duration: 1000,
     delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
-})
+});
+
+// var reverseFullCircle = anime ({
+//     targets: '.blocker',
+//     autoplay: false,
+//     easing: 'easeOutSine',
+//     height: [
+//         // {value: '1vw'},
+//         {value: '22vw'}
+//     ],
+//     // easing: 'steps(30)',
+//     duration: 1000,
+//     delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
+// })
 
 var letsGetSquare = anime ({
     targets: '.bigCircle',
     autoplay: false,
     easing: 'easeOutSine',
     borderRadius: [
-        {value: '100%'},
+        {value: '50%'},
         {value: '0%'}
     ],
     delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
 })
 
+var dyingBreath = anime({
+    targets: '.smallWhite',
+    autoplay: false,
+    height: [
+        {value: '4vw'},
+        {value: '0vw'}
+      ],
+    easing: 'easeOutSine',
+    duration: 1000,
+    delay: anime.stagger(200, {grid: [4, 6], axis: 'y'})
+});
+
 var issaLine = anime ({
     targets: '.blocker',
     autoplay: false,
-    easing: 'easeOutSine',
     height: [
         {value: '22vw'},
         {value: '1vw'}
     ],
+    easing: 'easeOutSine',
     // easing: 'steps(30)',
     // duration: 1000,
     delay: anime.stagger(30, {grid: [4, 6], axis: 'y'})
@@ -158,29 +171,27 @@ var reverseRotato = anime ({
 
 $('.content').on('scroll', function(){
     console.log("Percent: "+scrollPercent+"%");
-    if (scrollPercent>0 && scrollPercent<33.9){
+    // if (scrollPercent>0 && scrollPercent<33.9){
         // First set
         // console.log(rotato.duration);
         console.log(scrollPercent/33);
         rotato.seek(scrollPercent/33 * rotato.duration);
-        gradient.seek(scrollPercent/33 * gradient.duration);
-        // blockBoiJB.seek(scrollPercent/100 * blockBoiJB.duration);
         fullCircle.seek(scrollPercent/33 * fullCircle.duration);
         // console.log(scrollPercent/33 * fullCircle.duration);
-    }
+    // }
     // Second set
-    if (scrollPercent>33 && scrollPercent<66.9) {
+    // if (scrollPercent>33 && scrollPercent<66.9) {
         // console.log("Higher than 50%");
         // console.log(scrollPercent/75 * reverseFullCircle.duration);
         console.log(scrollPercent/33 - 1);
-        reverseFullCircle.seek(((scrollPercent/33)-1) * reverseFullCircle.duration);
         letsGetSquare.seek(((scrollPercent/33)-1) * letsGetSquare.duration);
-    }
-    if (scrollPercent>66) {
+        dyingBreath.seek(((scrollPercent/33)-1) * dyingBreath.duration);
+    // }
+    // if (scrollPercent>66) {
         console.log((scrollPercent/33)-2);
         // console.log(issaLine.duration);
         // console.log(scrollPercent/33);
         issaLine.seek(((scrollPercent/33)-2) * issaLine.duration);
         reverseRotato.seek(((scrollPercent/33)-2) * reverseRotato.duration);
-    }
+    // }
 })
